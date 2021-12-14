@@ -14,34 +14,41 @@ function writePassword() {
 
 }
 //Write prompt for character length
-window.alert("Please enter your password");
-
-
-//Need if statement 
+ 
 
 // Write password generator function
 function generatePassword() {
+  window.alert("Please enter your password");
   var lowercase = "abcdefghijklmnopqrstuvwxyz";
   var uppercase = "ABCEDEFGHIJKLMNOPQRSTUVWXYZ";
   var number = "0123456789";
   var special = "!@#$%^&*";
   var retVal = "";
+  var length = window.prompt("Password should 8 - 128 characters");
   var lConfirm = confirm("lower?"); 
   var uConfirm = confirm("uppercase?");
+  var specialConfirm = confirm ("special characters?")
+  var numberConfirm = confirm("numbers?")
   var passwordChoices = "";
-  var length = window.prompt("Password should 8 - 128 characters");
+
   if (lConfirm) {
     passwordChoices += lowercase
-  }
+  };
   if (uConfirm) {
     passwordChoices += uppercase
-  }
+  };
+  if (special) {
+    passwordChoices += special
+  };
+  if (number) {
+    passwordChoices += numbers
+  };
   for (var i = 0; i < length; ++i) {
     var currentchar = passwordChoices.charAt(Math.floor(Math.random() * passwordChoices.length));
     retVal += currentchar
-  }
+  };
   return retVal;
 
-}
+};
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
